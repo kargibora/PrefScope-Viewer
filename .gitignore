@@ -1,0 +1,15 @@
+node_modules
+dist
+dist-ssr
+lib
+*.tgz
+*.local
+.vite
+.DS_Store
+tsconfig.tsbuildinfo
+public/data/
+public/runs/
+
+# Locally packaged modern preview (never publish review data implicitly).
+.viewer-preview/
+site/

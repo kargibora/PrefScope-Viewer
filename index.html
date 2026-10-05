@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F4F6F8">
+  <title>PrefScope Viewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/modern/app/styles.css">
+  <link rel="stylesheet" href="/src/modern/app/workbench.css">
+</head>
+<body>
+  <header class="product-bar" inert>
+    <a class="brand" href="#prompts" aria-label="PrefScope Prompts"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>PrefScope</span></a>
+    <button class="bar-trigger dataset-trigger" data-nav="dataset"><small>Dataset</small><strong>Dataset</strong></button>
+    <nav class="workspace-nav" aria-label="Workspaces">
+      <button data-nav="prompts">Prompts</button>
+      <button data-nav="answers">Answers</button>
+      <button data-nav="map">Map</button>
+      <button data-nav="models">Models</button>
+      <button data-nav="dataset">Dataset</button>
+    </nav>
+    <div class="view-owner">
+      <button class="bar-trigger view-trigger" id="view-trigger" aria-haspopup="menu" aria-expanded="false"><small>View</small><strong id="view-label">Prompts</strong><span aria-hidden="true">⌄</span></button>
+      <div class="view-menu" id="view-menu" role="menu" hidden></div>
+    </div>
+    <button class="search-trigger" data-overlay="query"><span>Search concepts</span><kbd>⌘K</kbd></button>
+    <span class="bar-fill"></span>
+    <button class="bar-utility" id="copy-link">Copy link</button>
+    <button class="bar-utility" data-overlay="help">Help</button>
+  </header>
+  <aside class="concept-browser" id="concept-browser" aria-label="Concept browser" hidden></aside>
+  <div class="context-strip" id="context-strip" inert aria-label="Current analysis context"></div>
+  <main id="app" tabindex="-1"><div class="route-state"><strong>Loading dataset…</strong><p>Reading source records and validating the interface engine.</p></div></main>
+  <div id="overlay-root"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/src/modern/app/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{
+  "name": "@prefscope/viewer",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Interactive response-concept explorer for PrefScope post-training and SAE analysis bundles.",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/index.js"
+    },
+    "./style.css": "./lib/style.css"
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc -b",
+    "build": "npm run typecheck && vite build",
+    "build:lib": "vite build -c vite.lib.config.ts && tsc -p tsconfig.lib.json",
+    "build:all": "npm run build && npm run build:lib",
+    "test:bundle": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "preview": "vite preview",
+    "prepack": "npm run build:lib",
+    "build:bundle": "node scripts/build-bundle.mjs",
+    "test:bridge": "VITE_PREFSCOPE_DATA_URL=https://evil.invalid/different-dataset/ npm run build:bundle && npm run build:lib && node --test tests/bridge-data.test.mjs",
+    "test": "npm run test:bundle && npm run test:bridge && npm run test:modern && npm run test:package",
+    "test:modern": "node --test tests/modern-engine.test.mjs tests/modern-reading.test.mjs",
+    "test:modern:browser": "uv run --with playwright python tests/modern-viewer-smoke.py",
+    "package:viewer": "node scripts/package-viewer.mjs",
+    "test:package": "node --test tests/package-viewer.test.mjs",
+    "test:performance": "uv run --with playwright python tests/modern-performance-smoke.py",
+    "test:scale": "uv run --with playwright python tests/modern-scale-smoke.py",
+    "test:map": "uv run --with playwright python tests/modern-map-smoke.py",
+    "test:reader": "uv run --with playwright python tests/modern-reader-smoke.py",
+    "test:models": "uv run --with playwright python tests/modern-models-smoke.py",
+    "test:difference": "uv run --with playwright python tests/modern-difference-smoke.py"
+  },
+  "dependencies": {
+    "katex": "^0.19.0",
+    "lucide-react": "^0.460.0",
+    "markdown-it": "^15.0.2",
+    "markdown-it-texmath": "^1.0.0",
+    "recharts": "^2.13.3"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0 <20",
+    "react-dom": ">=18.2.0 <20"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^6.0.3",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3",
+    "vite": "^8.1.5"
+  }
+}

@@ -1,0 +1,134 @@
+@tailwind components;
+@tailwind utilities;
+
+/* Standalone-only page chrome. Embedders do not receive any body-level styles. */
+body.prefscope-host {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #080b12;
+}
+
+/* Scoped preflight: enough normalization for the viewer, none for its host page. */
+.prefscope-viewer {
+  color-scheme: dark;
+  background:
+    radial-gradient(circle at 75% -20%, rgba(118, 103, 245, 0.10), transparent 34rem),
+    #080b12;
+  color: #e5e7eb;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-feature-settings: "ss01" 1, "cv11" 1;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.prefscope-viewer,
+.prefscope-viewer *,
+.prefscope-viewer *::before,
+.prefscope-viewer *::after {
+  /* Tailwind's utility state, scoped here instead of its global base rule. */
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #253146;
+}
+
+.prefscope-viewer h1,
+.prefscope-viewer h2,
+.prefscope-viewer h3,
+.prefscope-viewer h4,
+.prefscope-viewer p,
+.prefscope-viewer ul,
+.prefscope-viewer ol,
+.prefscope-viewer dl,
+.prefscope-viewer dd { margin: 0; }
+.prefscope-viewer ul,
+.prefscope-viewer ol { padding: 0; list-style: none; }
+.prefscope-viewer h1,
+.prefscope-viewer h2,
+.prefscope-viewer h3,
+.prefscope-viewer h4 { font-size: inherit; font-weight: inherit; }
+.prefscope-viewer button,
+.prefscope-viewer select,
+.prefscope-viewer input { font: inherit; color: inherit; }
+.prefscope-viewer button { margin: 0; padding: 0; background: transparent; cursor: pointer; }
+.prefscope-viewer button:disabled { cursor: default; }
+.prefscope-viewer svg { display: block; }
+
+.prefscope-viewer button:focus-visible,
+.prefscope-viewer select:focus-visible,
+.prefscope-viewer input:focus-visible,
+.prefscope-viewer [tabindex="0"]:focus-visible {
+  outline: 2px solid #a5b4fc;
+  outline-offset: 2px;
+}
+.prefscope-viewer ::selection { background: rgba(118, 103, 245, 0.35); color: #fff; }
+
+@layer components {
+  .prefscope-viewer .icon-button {
+    @apply h-10 w-10 place-items-center rounded-xl border border-edge bg-panel/70 text-slate-400 transition hover:border-slate-600 hover:text-slate-100;
+  }
+}
+
+/* Slim scrollbars, scoped to viewer-owned scroll containers. */
+.prefscope-viewer * { scrollbar-width: thin; scrollbar-color: #243041 transparent; }
+.prefscope-viewer ::-webkit-scrollbar { width: 8px; height: 8px; }
+.prefscope-viewer ::-webkit-scrollbar-track { background: transparent; }
+.prefscope-viewer ::-webkit-scrollbar-thumb {
+  background: #243041;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.prefscope-viewer :hover::-webkit-scrollbar-thumb { background: #334155; background-clip: content-box; }
